@@ -10,16 +10,18 @@ class TibiaApiAdapter:
     def get_creatures(self):
         url = f"{self._url}/v4/creatures"
         response = self._session.get(url=url)
-        return response.json
+        response_json = response.json()
+        return response_json
 
     def get_kill_statistics(self, world: str):
         url = f"{self._url}/v4/killstatistics/{world}"
         response = self._session.get(url=url)
-        response_json = response
+        response_json = response.json()
         return response_json["killstatistics"]["entries"]
 
     def get_house(self, world: str, town: str):
         url = f"{self._url}/v4/houses/{world}/{town}"
         response = self._session.get(url=url)
-        return response.json
+        response_json = response.json()
+        return response_json
 
