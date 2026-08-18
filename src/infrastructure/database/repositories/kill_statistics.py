@@ -16,6 +16,7 @@ class KillStatisticsRepository:
         last_day_players_killed: int,
         last_day_killed: int,
         last_week_players_killed: int,
+        last_week_killed: int,
         date: datetime
     ) -> KillStatistics:
         new_kill_statistics = KillStatistics(

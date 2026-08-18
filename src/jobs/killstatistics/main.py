@@ -1,3 +1,5 @@
+from datetime import date
+
 from src.config import settings
 from src.infrastructure.adapters.tibia_api_adapter import TibiaApiAdapter
 from src.infrastructure.database.database import SessionLocal
@@ -25,7 +27,9 @@ class KillStatisticsSync:
                     statistic["last_day_killed"],
                     statistic["last_week_players_killed"],
                     statistic["last_week_killed"],
+                    date.today()
                 )
+                print(f"New stats saved: {statistic}")
 
 def create_tables():
     print("Creating tables in PostgreSQL...")
