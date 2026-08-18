@@ -1,2 +1,14 @@
 /.venv
 
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+.pyc
+.pyo
+.pyd
+.Python
+.ruff_cache/
+.pytest_cache
+.pytest_cache/
+.DS_Store
+**/main_local.py
