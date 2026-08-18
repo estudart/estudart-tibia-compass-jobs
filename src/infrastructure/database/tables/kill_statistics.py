@@ -1,9 +1,25 @@
+from datetime import datetime
+
+from sqlalchemy import (
+    Boolean,
+    ForeignKey,
+    ForeignKeyConstraint,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
+from sqlalchemy.orm import Mapped, mapped_column
+
 from src.infrastructure.database.database import Base
 
 class KillStatistics(Base):
-    id: Mapped[int]
-    date: str
-    race: str
-    last_day_players_killed: int
-    last_day_killed: int
-    last_week_players_killed: int
+    __tablename__ = "kill_statistics"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    race: Mapped[str] = mapped_column(String, default="")
+    last_day_players_killed: Mapped[int] = mapped_column(Integer, default=0)
+    last_day_killed: Mapped[int] = mapped_column(Integer, default=0)
+    last_week_players_killed: Mapped[int] = mapped_column(Integer, default=0)
+    last_week_killed: Mapped[int] = mapped_column(Integer, default=0)
+    date: Mapped[datetime] = mapped_column(default=None)

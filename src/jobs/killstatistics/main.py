@@ -17,8 +17,15 @@ class KillStatisticsSync:
         worlds = settings.world_list
 
         for world in worlds:
-            self._tibia_api_adapter.get_kill_statistics(world)
-            self._kill_statistics_repository.save()
+            statistics = self._tibia_api_adapter.get_kill_statistics(world)
+            for statistic in statistics:
+                self._kill_statistics_repository.save(
+                    statistic["race"],
+                    statistic["last_day_players_killed"],
+                    statistic["last_day_killed"],
+                    statistic["last_week_players_killed"],
+                    statistic["last_week_killed"],
+                )
 
 def create_tables():
     print("Creating tables in PostgreSQL...")
@@ -33,7 +40,7 @@ if __name__ == '__main__':
         tibia_api_adapter = TibiaApiAdapter()
         db_session = SessionLocal()
         kill_statistics_repository = KillStatisticsRepository(db=db_session)
-        
+
         service = KillStatisticsSync(
             tibia_api_adapter=tibia_api_adapter,
             kill_statistics_repository=kill_statistics_repository

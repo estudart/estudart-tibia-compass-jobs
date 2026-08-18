@@ -13,12 +13,13 @@ class TibiaApiAdapter:
         return response.json
 
     def get_kill_statistics(self, world: str):
-        url = f"{self._url}/v4/killstatistics/${world}"
+        url = f"{self._url}/v4/killstatistics/{world}"
         response = self._session.get(url=url)
-        return response.json
+        response_json = response
+        return response_json["killstatistics"]["entries"]
 
     def get_house(self, world: str, town: str):
-        url = f"{self._url}/v4/houses/${world}/${town}"
+        url = f"{self._url}/v4/houses/{world}/{town}"
         response = self._session.get(url=url)
         return response.json
 
