@@ -14,4 +14,4 @@ COPY . .
 
 ENV PATH="/app/.venv/bin:$PATH"
 
-ENTRYPOINT ["python", "-m", "src.application.jobs.efc_cards_discovery.main"]
+ENTRYPOINT ["python", "-m", "src.jobs.killstatistics.main"]
