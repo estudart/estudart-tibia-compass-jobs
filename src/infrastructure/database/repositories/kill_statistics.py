@@ -24,6 +24,7 @@ class KillStatisticsRepository:
             last_day_players_killed=last_day_players_killed,
             last_day_killed=last_day_killed,
             last_week_players_killed=last_week_players_killed,
+            last_week_killed=last_week_killed,
             date=date
         )
         self._db.add(new_kill_statistics)
