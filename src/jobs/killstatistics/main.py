@@ -30,7 +30,7 @@ class KillStatisticsSync:
                     statistic["last_week_killed"],
                     date.today()
                 )
-                print(f"New stats saved: {statistic}")
+                print(f"New stats saved: {statistic} for world {world}")
 
 def create_tables():
     print("Creating tables in PostgreSQL...")
