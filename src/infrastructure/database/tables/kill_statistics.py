@@ -17,6 +17,7 @@ class KillStatistics(Base):
     __tablename__ = "kill_statistics"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    world: Mapped[str] = mapped_column(String, default="")
     race: Mapped[str] = mapped_column(String, default="")
     last_day_players_killed: Mapped[int] = mapped_column(Integer, default=0)
     last_day_killed: Mapped[int] = mapped_column(Integer, default=0)

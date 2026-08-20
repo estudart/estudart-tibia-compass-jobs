@@ -23,6 +23,7 @@ class KillStatisticsSync:
             for statistic in statistics:
                 self._kill_statistics_repository.save(
                     statistic["race"],
+                    world,
                     statistic["last_day_players_killed"],
                     statistic["last_day_killed"],
                     statistic["last_week_players_killed"],

@@ -13,6 +13,7 @@ class KillStatisticsRepository:
     def save(
         self,
         race: str,
+        world: str,
         last_day_players_killed: int,
         last_day_killed: int,
         last_week_players_killed: int,
@@ -20,6 +21,7 @@ class KillStatisticsRepository:
         date: datetime
     ) -> KillStatistics:
         new_kill_statistics = KillStatistics(
+            world=world,
             race=race,
             last_day_players_killed=last_day_players_killed,
             last_day_killed=last_day_killed,
