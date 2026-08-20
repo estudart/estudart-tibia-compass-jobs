@@ -16,6 +16,7 @@ class TibiaApiAdapter:
     def get_kill_statistics(self, world: str):
         url = f"{self._url}/v4/killstatistics/{world}"
         response = self._session.get(url=url)
+        print(f"[TibiaDataAPI] Response: {response}")
         response_json = response.json()
         return response_json["killstatistics"]["entries"]
 
