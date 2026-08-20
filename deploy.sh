@@ -27,5 +27,4 @@ gcloud run jobs deploy "${JOB_NAME}" \
   --network=tibia-vpc \
   --subnet=tibia-vpc \
   --vpc-egress=private-ranges-only
-
 echo "Done: ${IMAGE}"

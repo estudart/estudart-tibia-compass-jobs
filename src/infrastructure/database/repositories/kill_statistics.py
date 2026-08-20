@@ -12,8 +12,8 @@ class KillStatisticsRepository:
     
     def save(
         self,
-        race: str,
         world: str,
+        race: str,
         last_day_players_killed: int,
         last_day_killed: int,
         last_week_players_killed: int,

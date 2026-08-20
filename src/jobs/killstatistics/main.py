@@ -19,18 +19,21 @@ class KillStatisticsSync:
         worlds = settings.world_list
 
         for world in worlds:
-            statistics = self._tibia_api_adapter.get_kill_statistics(world)
-            for statistic in statistics:
-                self._kill_statistics_repository.save(
-                    statistic["race"],
-                    world,
-                    statistic["last_day_players_killed"],
-                    statistic["last_day_killed"],
-                    statistic["last_week_players_killed"],
-                    statistic["last_week_killed"],
-                    date.today()
-                )
-                print(f"New stats saved: {statistic} for world {world}")
+            try:
+                statistics = self._tibia_api_adapter.get_kill_statistics(world)
+                for statistic in statistics:
+                    self._kill_statistics_repository.save(
+                        world,
+                        statistic["race"],
+                        statistic["last_day_players_killed"],
+                        statistic["last_day_killed"],
+                        statistic["last_week_players_killed"],
+                        statistic["last_week_killed"],
+                        date.today()
+                    )
+                    print(f"New stats saved: {statistic} for world {world}")
+            except Exception as err:
+                print(f"[ERROR] Could not sync data, reason: {err}")
 
 def create_tables():
     print("Creating tables in PostgreSQL...")
