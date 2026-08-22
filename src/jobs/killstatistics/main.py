@@ -20,6 +20,7 @@ class KillStatisticsSync:
 
         for world in worlds:
             try:
+                print("Calling api...")
                 statistics = self._tibia_api_adapter.get_kill_statistics(world)
                 for statistic in statistics:
                     self._kill_statistics_repository.save(
