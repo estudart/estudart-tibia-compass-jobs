@@ -23,7 +23,7 @@ class KillStatisticsSync:
                 print("Calling api...")
                 statistics = self._tibia_api_adapter.get_kill_statistics(world)
                 for statistic in statistics:
-                    self._kill_statistics_repository.save(
+                    new_statistic = self._kill_statistics_repository.save(
                         world,
                         statistic["race"],
                         statistic["last_day_players_killed"],
@@ -32,7 +32,7 @@ class KillStatisticsSync:
                         statistic["last_week_killed"],
                         date.today()
                     )
-                    print(f"New stats saved: {statistic} for world {world}")
+                    print(f"New stats saved: {new_statistic}")
             except Exception as err:
                 print(f"[ERROR] Could not sync data, reason: {err}")
 
