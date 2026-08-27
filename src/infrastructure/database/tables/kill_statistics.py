@@ -3,11 +3,8 @@ from datetime import datetime
 from sqlalchemy import (
     Boolean,
     ForeignKey,
-    ForeignKeyConstraint,
     Integer,
-    String,
-    Text,
-    UniqueConstraint,
+    String
 )
 from sqlalchemy.orm import Mapped, mapped_column
 
