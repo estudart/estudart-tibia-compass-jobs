@@ -23,11 +23,10 @@ class CreaturesSync:
             creatures = self._tibia_api_adapter.get_creatures()
             boosted_creature = creatures["boosted"]
             new_creature = self._creatures_repository.save(
-                world,
-                creature["name"],
-                creature["race"],
-                creature["image_url"],
-                creature["featured"],
+                boosted_creature["name"],
+                boosted_creature["race"],
+                boosted_creature["image_url"],
+                boosted_creature["featured"],
                 True,
                 date.today()
             )
@@ -35,7 +34,6 @@ class CreaturesSync:
 
             for creature in creatures["creature_list"]:
                 new_creature = self._creatures_repository.save(
-                    world,
                     creature["name"],
                     creature["race"],
                     creature["image_url"],
@@ -49,7 +47,6 @@ class CreaturesSync:
 
 def create_tables():
     print("Creating tables in PostgreSQL...")
-    # This reads all classes inheriting from Base and creates them if they don't exist
     Base.metadata.create_all(bind=engine)
     print("Tables created successfully!")
 

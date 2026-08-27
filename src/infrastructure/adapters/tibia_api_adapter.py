@@ -11,7 +11,7 @@ class TibiaApiAdapter:
         url = f"{self._url}/v4/creatures"
         response = self._session.get(url=url)
         response_json = response.json()
-        return response_json
+        return response_json["creatures"]
 
     def get_kill_statistics(self, world: str):
         url = f"{self._url}/v4/killstatistics/{world}"

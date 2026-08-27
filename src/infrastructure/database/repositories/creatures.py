@@ -11,6 +11,7 @@ class CreaturesRepository:
     def save(
         self,
         name: str,
+        race: str,
         image_url: str,
         featured: bool,
         boosted: bool,
@@ -18,6 +19,7 @@ class CreaturesRepository:
     ) -> Creatures:
         new_creature = Creatures(
             name=name,
+            race=race,
             image_url=image_url,
             featured=featured,
             boosted=boosted,
