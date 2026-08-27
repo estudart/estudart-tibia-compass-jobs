@@ -20,3 +20,6 @@ class Creatures(Base):
     featured: Mapped[bool] = mapped_column(Boolean, default=False)
     boosted: Mapped[bool] = mapped_column(Boolean, default=False)
     date: Mapped[datetime] = mapped_column(default=None)
+
+    def __repr__(self) -> str:
+        return f"Creatures(id={self.id}, name={self.name!r}, race={self.race!r}, featured={self.featured})"
