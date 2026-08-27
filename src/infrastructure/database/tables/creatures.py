@@ -15,6 +15,7 @@ class Creatures(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String, default="")
+    race: Mapped[str] = mapped_column(String, default="")
     image_url: Mapped[str] = mapped_column(String, default="")
     featured: Mapped[bool] = mapped_column(Boolean, default=False)
     boosted: Mapped[bool] = mapped_column(Boolean, default=False)
